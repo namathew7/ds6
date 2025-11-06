@@ -1,6 +1,12 @@
 # Capstone Project - DSI Cohort 7 - DS Team 6
-## Research Question
+## Research Question & Business Problem
 ### Regression: Can we predict delay time based on the other variables (line, date(month, seasons, holidays, week, day of month)), day of week, time(hour), direction, incident)?
+
+## Industry Context
+
+## Describing the Dataset
+
+## Data Cleaning Process
 
 ### Visualizations:
   1. Pick a streetcar route - look at type of incidents and map it by frequency (SC)
