@@ -1,35 +1,35 @@
 # Capstone Project - DSI Cohort 7 - DS Team 6
 
-### Project Sections
+## Project Sections
 Purpose and Overview
 Methodology
 Project Scope
 Understanding the Data
 Data Cleaning
 
-### Purpose and Overview
+## Purpose and Overview
 
 The goal of this project is to analyze and visualize trends in TTC streetcar delays using the 2024 dataset. We will investigate if it’s possible to predict delay time by using predictors such as incident, bound direction, vehicle number, time of day, date, and streetcar line. The project aims to give TTC staff a better understanding of the factors that contribute to delay time, so that they can mitigate delays accordingly.
 
-### Project Scope
+## Project Scope
 This project involves conducting regression analysis on TTC streetcar delay data to estimate delay times based on key factors such as incident, bound direction, and time of day.
 The resulting model could be valuable for:
 Communicating approximate delay times to the public through various channels (e.g., apps, website, etc.).
 Assisting in resource deployment by estimating the expected duration of delays (e.g., longer delays may require greater urgency and more staff).
 The analysis will be validated through data splitting and performance metrics to ensure reliability. Additionally, the project will include insights and recommendations on the situations most likely to cause the longest delays. These insights could also inform HR planning by identifying patterns that impact staffing needs.
 
-## Stakeholders
+### Stakeholders
 TTC Communications Team – Use insights to communicate accurate delay information.
 
 TTC HR – Apply findings to staffing and hiring decisions.
 
 Business Strategy & Insights Team – Leverage results to inform new route planning or network design.
 
-## Describing the Dataset
+### Describing the Dataset
 
 We used TTC streetcar delay data from Toronto’s open data catalogue for the 2024 year. While data for other years is available, we chose to use the 2024 dataset as it is a large sample (~14,000 rows) and it’s the most recent, complete year of data.
 
-## Understanding the Features
+### Understanding the Features
 | Column Name | Description                                      |
 |-------------|--------------------------------------------------|
 | Date        | Incident date (MM/DD/YYYY)                       |
@@ -44,9 +44,9 @@ We used TTC streetcar delay data from Toronto’s open data catalogue for the 20
 | Vehicle     | Streetcar vehicle number                         |
 
 
-### Methodology
+## Methodology
 
-## Data Cleaning Process
+### Data Cleaning Process
 
 Upon preliminary inspection, several inconsistencies were observed in the “Location” column and there was wide variety in how the same locations were reported.  Examples include different versions of the same intersection (ex. “Yonge and Dundas” vs. “Dundas and Yonge”), misspellings (I can never spell “Roncesvalles” correctly, either), typos (“Bathust” vs. “Bathurst”), punctuation (“St. Clair” vs “St Clair”),  abbreviations (“DVP” vs. “Don Valley Parkway”), and different ways to describe the same street (ex. “Queen”, “Queen Street”, “Queen Street West”, “Queen St”, “Queen Street W”, etc.).  Given the diversity of these errors, it was deemed important to manually clean the original excel file.  Location names were processed through Excel’s spellcheck feature, and manually screened for issues with typos, punctuation, and naming inconsistencies.  This manual process reduced the number of unique locations from 21043 to 15732.  The excel file containing manually-cleaned location data is made available as  “ttc-streetcar-delay-data-2024_location_cleaning.xlsx”.  Given how variable the errors in “Location” were, it was very difficult to try and use a code-based cleaning method.  It is likely that the manual cleaning introduced irreproducibility, unintentional errors, and/or accidental misassignments.  To ensure quality location data in future years, we highly encourage the TTC to standardize the way they record location information.
 
@@ -67,7 +67,7 @@ The following table describes the unique values in each column, before and after
 | Bound       | 7                             | 5                            |
 | Vehicle     | 1176                          | 1151                         |
 
-## Enhancing the Data
+### Enhancing the Data
 
 As part of enhancing the data, several new columns were introduced: ‘Month’, ‘Week’, ‘Day of Month’, ‘Hour of Day’, and ‘Seasons’.  These columns are designed to further examine whether data on time of day or time of year and help predict length of delay or time of incident.  The resulting excel file is made available as “ttc-streetcar-delay-data-2024_cleaned.xlsx” and was used as the basis for all exploratory data analyses (shown here: https://drive.google.com/drive/u/0/folders/1Us1BW8OZXzJBEpC5erFqJYmCesQS-U9V).
 
