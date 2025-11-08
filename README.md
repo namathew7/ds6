@@ -1,6 +1,4 @@
-# Capstone Project - DSI Cohort 7 - DS Team 6
-## Research Question
-### Regression: Can we predict delay time based on the other variables (line, date(month, seasons, holidays, week, day of month)), day of week, time(hour), direction, incident)?
+# TTC Streetcar Delay Analysis
 
 ### Data Science Intitute - Cohort 6 — Team 7 - Final Project
 For our capstone project in the Data Sciences Certificate program at the University of Toronto’s Data Sciences Institute, we set out to explore real-world questions using a dataset on TTC streetcar delays.
@@ -26,7 +24,16 @@ For our capstone project in the Data Sciences Certificate program at the Univers
 ## Purpose and Overview
 Source: [City of Toronto’s Open Data Portal: TTC Streetcar Delay Data](https://open.toronto.ca/dataset/ttc-streetcar-delay-data/)
 
-Features: Date, Streetcar Line, Time of Day, Day of Week, Streetcar Stop Location, Incident, Minutes of Delay, Minute Gap Between Vehicles, Direction Bound, Vehicle, Month, Week, Day of Month, Hour of Day, Season
+## Research Question
+Can we use regression models to predict delay time based on other features in the dataset (line, date/time (month of year, seasons, holidays, week, day of month, day of week, time of day), direction, incident)?
+
+The goal of this project is to analyze, visualize, and predict TTC streetcar minutes of delay with our regression model. Our team aims to uncover insights into delay trends across different features such as:
+- Date/time (month of year, week of year, day of month, day of week, hour of day, seasons, holidays)
+- Streetcar Line
+- Streetcar Stop Location
+- Incident
+- Direction Bound
+- Vehicle Number
 
 This project applies regression modeling to understand the impact of date, time of day and ___ on minutes of delay. Our primary stakeholders include the operations team, planning team, and data team, as they are responsible for building predictive models and using the insights to optimize TTC streetcar schedules. This project is relevant to them because our model hopefully accurately predicts minutes of delay will help them allocate resources effectively, schedule streetcars efficiently, and improve long-term transit service. 
 
