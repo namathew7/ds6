@@ -1,10 +1,10 @@
 # Capstone Project - DSI Cohort 7 - DS Team 6
 
 ## Project Sections
-Purpose and Overview
-Methodology
-Project Scope
-Understanding the Data
+Purpose and Overview \
+Methodology \
+Project Scope \
+Understanding the Data \
 Data Cleaning
 
 ## Purpose and Overview
