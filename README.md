@@ -25,6 +25,8 @@ TTC HR – Apply findings to staffing and hiring decisions.
 
 Business Strategy & Insights Team – Leverage results to inform new route planning or network design.
 
+TTC Users - Knowledge of factors likely to cause delays, which can help them plan their commutes. 
+
 ### Describing the Dataset
 
 We used TTC streetcar delay data from Toronto’s open data catalogue for the 2024 year. While data for other years is available, we chose to use the 2024 dataset as it is a large sample (~14,000 rows) and it’s the most recent, complete year of data.
