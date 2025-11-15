@@ -2,7 +2,7 @@
 # # Analyzing TTC Data on Streetcar Delays in 2024
 For our capstone project in the Data Sciences Certificate program at the University of Toronto’s Data Sciences Institute, we set out to explore real-world questions using the 2024 dataset on Toronto Transit Commission's (TTC) streetcar delays.
 
-![alt text] /Images/More_reliable_trips.png
+![alt text] Images/More_reliable_trips.png
 
 ## Project Sections
 Purpose and Overview \
