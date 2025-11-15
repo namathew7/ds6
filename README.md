@@ -1,5 +1,8 @@
 # Capstone Project - DSI Cohort 7 - DS Team 6
-# Analyzing 2024 TTC Streetcar Delay Data
+# # Analyzing TTC Data on Streetcar Delays in 2024
+For our capstone project in the Data Sciences Certificate program at the University of Toronto’s Data Sciences Institute, we set out to explore real-world questions using the 2024 dataset on Toronto Transit Commission's (TTC) streetcar delays.
+
+![Alt text] https://github.com/namathew7/ds6/blob/main/Images/More_reliable_trips.png
 
 ## Project Sections
 Purpose and Overview \
