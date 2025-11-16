@@ -7,7 +7,7 @@ For our capstone project in the Data Sciences Certificate program at the Univers
 
 ## Project Sections
 [Purpose and Overview](https://github.com/namathew7/ds6/blob/main/README.md#purpose-and-overview) \
-[Project Scope] \
+[Project Scope](https://github.com/namathew7/ds6/blob/main/README.md#project-scope) \
 Methodology \
 Data Cleaning \
 Insights from Data Visualization \
