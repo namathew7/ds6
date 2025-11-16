@@ -48,7 +48,7 @@ The analysis will be validated through data splitting and performance metrics to
 - Classification: Built a classification model using Random Forest, to classify delays as either ‘minor’ or ‘moderate’. Created training and testing sets, used cross-validation and classification reports to assess model precision and recall.
 - Visualization: Created bar plots, line plots, and heatmaps to represent insight and model results.
 - Recommendations for the TTC
-- Conclusion
+- Conclusions
 
 ### Technical Stack:
 
