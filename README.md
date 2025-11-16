@@ -244,7 +244,7 @@ Natasha Mathew: https://drive.google.com/file/d/1eOikP5jQHNjC3eKNXklBek-qh84V39u
 Tanner Ferreira: https://drive.google.com/file/d/1H1v4qq31cax07nQnwEBBvgVh9x35rEhS/view?usp=drive_link
 
 ## Credits and Source
-Dataset sourced from: [City of Toronto’s Open Data Portal: TTC Streetcar Delay Data](https://open.toronto.ca/dataset/ttc-streetcar-delay-data/)\
+Dataset sourced from: [City of Toronto’s Open Data Portal: TTC Streetcar Delay Data](https://open.toronto.ca/dataset/ttc-streetcar-delay-data/),\
 [Environment Canada Weather Data Station 6158355](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html)
 
 -----------
