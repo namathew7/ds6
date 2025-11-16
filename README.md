@@ -106,7 +106,7 @@ Most incident types fall within a moderate delay range—generally between 8 and
 
 Temporal patterns are important to understand as they can indicate important variables (hour, day, week, month, season). When looking at the time series data, there were no obvious monthly trends. Total minutes delayed by season was higher in the summer and winter than the fall and spring. In the summer, this is largely due to operations delays and in the winter, these delays could be due to weather. Fall was the season with the lowest frequency of delays. Operations delays peaked on Saturdays, which is often when the TTC has service disruptions. In the hourly data, there were peaks during the morning and evening rush hours, as expected. 
 
-![minutes delayed by date](Images/minutes delayed by date.png)
+![minutes delayed by date](Images/Images/minutes\ delayed\ by\ date.png)
 ![day-of-week_vs_delays](Images/day-of-week_vs_delays.png)
 
 #### Spatial and Operational Insights 
@@ -133,7 +133,7 @@ Another important attribute of delay is understanding the pattern of incident ty
 
 This visualization highlights that certain incident types such as “Operations, Mechanical, Diversion, and Emergency Services” not only occur frequently but also generate a significant share of moderate and major delays. In contrast, categories like “Rail/Switches, Utilized Off Route, and Overhead” tend to produce mostly minor delays, indicating they are typically resolved more quickly. The distribution of severity across categories provides valuable insight into which incident types have the greatest operational impact, helping identify where targeted mitigation strategies may reduce overall service disruption.
 
-![incidient_severity_distribution_type](Images/incidient severity distribution type.png)
+![incidient_severity_distribution_type](Images/incidient\ severity\ distribution\ type.png))
 
 **Chart 8: Correlation Analysis** 
 
