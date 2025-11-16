@@ -243,7 +243,8 @@ Our analyses of the 2024 Streetcar Delay Dataset could be significantly enhanced
 
 ## Team Videos
 Natasha Mathew: https://drive.google.com/file/d/1eOikP5jQHNjC3eKNXklBek-qh84V39uW/view?usp=sharing \
-Tanner Ferreira: https://drive.google.com/file/d/1H1v4qq31cax07nQnwEBBvgVh9x35rEhS/view?usp=drive_link
+Tanner Ferreira: https://drive.google.com/file/d/1H1v4qq31cax07nQnwEBBvgVh9x35rEhS/view?usp=drive_link \
+Semiha Demirbas Caglayan: https://drive.google.com/file/d/1YcWnNi2xQmsNJvs5g8GGFamC--lB3jgO/view?usp=sharing
 
 ## Credits and Source
 Dataset sourced from: [City of Toronto’s Open Data Portal: TTC Streetcar Delay Data](https://open.toronto.ca/dataset/ttc-streetcar-delay-data/),\
