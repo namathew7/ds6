@@ -7,10 +7,14 @@ For our capstone project in the Data Sciences Certificate program at the Univers
 
 ## Project Sections
 Purpose and Overview \
-Methodology \
 Project Scope \
-Understanding the Data \
-Data Cleaning
+Methodology \
+Data Cleaning \
+Insights from Data Visualization \
+Regresson and Classification Modeling \
+Conclusions \
+Limitations \
+Ideas for Future Analyses
 
 ## Purpose and Overview
 
