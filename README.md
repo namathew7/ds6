@@ -149,6 +149,8 @@ The temporal vulnerability heatmap illustrates how average delay varies across s
 
 A striking observation is that most streetcar lines maintain relatively consistent delay levels across time periods, with moderate increases during high-demand windows such as morning (9–12) and evening (18–21). However, several lines show distinct temporal peaks. Line 508, in particular, exhibits an extreme delay spike during the midday period (12–15), reaching an average delay of approximately 126 minutes, making it the most temporally vulnerable route in the dataset. Lines 303, 310, and 511 also show notable increases during specific periods such as early morning and late night, suggesting sensitivity to operational factors such as reduced service frequency, construction activity, or traffic interactions.
 
+We also noticed longer delays late night and early morning.  The 300 series lines have no delays during the day because they are overnight lines and do not run during the day.
+
 Additionally, heavily used lines like 501, 503, 504, 506, 507, and 512 show elevated midday and afternoon delays, which align with typical traffic congestion and higher passenger volumes during these hours. The pattern indicates that both operational constraints and city-wide traffic dynamics contribute to higher delay durations during middle-of-day periods for several key routes.
 
 ![heat2](Images/heat2.png)
