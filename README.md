@@ -204,6 +204,7 @@ Several models were explored to estimate ‘Min Delay.’ Delay duration is high
 Overall, our analysis shows that Toronto’s streetcar network reveals clear patterns of vulnerability across different routes. While lines such as 303, 508, 310, 301, and 305 experience the longest delays per incident, other busy routes like 501, 504, 505, 510, 506, and 512 are more susceptible to frequent disruptions. Incident severity patterns further highlight that categories such as Operations, Mechanical, Diversion, and Emergency Services contribute disproportionately to moderate and major delays, whereas issues related to Rail/Switches, Utilized Off Route, and Overhead are more often resolved quickly. Together, these findings emphasize the need for targeted mitigation strategies—both for routes with consistently long delays and those with high disruption frequency—to improve the resilience and reliability of the streetcar network.
 
 *Recommendations for TTC operations, staffing, and communications*
+
 To improve the reliability and resilience of the streetcar network, the TTC should adopt a strategy that addresses both the duration and frequency of service disruptions. Lines such as 303, 508, 310, 301, and 305, which experience the longest delays, should be prioritized for operational improvements, including dedicated transit lanes, flexible scheduling, etc. High-frequency incident lines, including 501, 504, 505, 510, 506, and 512, would likely benefit from enhanced monitoring and closer coordination with traffic management to reduce disruption occurrence. Staffing strategies should include deploying additional personnel to these critical lines, creating specialized rapid-response teams for major incidents, and cross-training staff to increase flexibility during disruptions. Additionally, focusing resources on incident types that contribute most to moderate and major delays—namely Operations, Mechanical, Diversion, and Emergency Services—through rapid-response teams or preventive maintenance can further reduce delay times. Collectively, these measures could potentially enable the TTC to enhance service reliability, manage delays more effectively, and provide a better overall experience for riders.
 
 
@@ -227,7 +228,7 @@ Our analyses of the 2024 Streetcar Delay Dataset could be significantly enhanced
   6)	Additionally, we could try our analyses with data from additional years.  Stakeholders would benefit from knowing whether the identified trends were specific to 2024, or if they are longstanding issues.  We would also be very curious to see shifts in TTC usage and delays before and after COVID.
 
 ## Team Videos
-Natasha Mathew: https://drive.google.com/file/d/1eOikP5jQHNjC3eKNXklBek-qh84V39uW/view?usp=sharing
+Natasha Mathew: https://drive.google.com/file/d/1eOikP5jQHNjC3eKNXklBek-qh84V39uW/view?usp=sharing \
 Tanner Ferreira: https://drive.google.com/file/d/1H1v4qq31cax07nQnwEBBvgVh9x35rEhS/view?usp=drive_link
 
 ## Credits and Source
