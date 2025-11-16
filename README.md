@@ -78,7 +78,7 @@ The following table describes the unique values in each column, before and after
 
 As part of enhancing the data, several new columns were introduced: ‘Month’, ‘Week’, ‘Day of Month’, ‘Hour of Day’, and ‘Seasons’.  These columns are designed to further examine whether data on time of day or time of year and help predict length of delay or time of incident.  The resulting excel file is made available as “ttc-streetcar-delay-data-2024_cleaned.xlsx” and was used as the basis for all exploratory data analyses (shown here: https://drive.google.com/drive/u/0/folders/1Us1BW8OZXzJBEpC5erFqJYmCesQS-U9V).
 
-#### Insights from Data Visualization
+### Insights from Data Visualization
 
 **Chart 1: Distribution of delay durations** 
 
