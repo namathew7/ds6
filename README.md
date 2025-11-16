@@ -25,9 +25,7 @@ The goal of this project is to analyze and visualize trends in TTC streetcar del
 
 ## Project Scope
 This project involves conducting regression analysis on TTC streetcar delay data to estimate delay times based on key factors such as incident, bound direction, and time of day.
-The resulting model could be valuable for:
-Communicating approximate delay times to the public through various channels (e.g., apps, website, etc.).
-Assisting in resource deployment by estimating the expected duration of delays (e.g., longer delays may require greater urgency and more staff).
+The resulting model could be valuable for: Communicating approximate delay times to the public through various channels (e.g., apps, website, etc.). Assisting in resource deployment by estimating the expected duration of delays (e.g., longer delays may require greater urgency and more staff).
 The analysis will be validated through data splitting and performance metrics to ensure reliability. Additionally, the project will include insights and recommendations on the situations most likely to cause the longest delays. These insights could also inform HR planning by identifying patterns that impact staffing needs.
 
 ### Stakeholders
