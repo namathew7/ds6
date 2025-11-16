@@ -80,7 +80,7 @@ As part of enhancing the data, several new columns were introduced: ‘Month’,
 
 ### Insights from Data Visualization
 
-**Chart 1: Distribution of delay durations** 
+**Chart 1: Distribution of Delay Durations** 
 
 The most frequent duration of delays were found to be in the range of 11-15 minutes
 
@@ -163,9 +163,23 @@ In the bar chart, the x axis shows high incident locations.  The left y axis sho
 
 Union Station remains plagued by a high relative percentage of general delays, but this “insight” will not surprise any Torontonian.
 
-Data on accumulated delay time are overlaid as a line plot.  The location with the high total delay time in 2024 was King and Church, and I suspect the long delays were the result of diversions.
+Data on accumulated delay time are overlaid as a line plot.  The location with the highest total delay time in 2024 was King and Church, and we suspect the long delays were the result of diversions.
 
-![Images/Streetcar_Delays_Bar_Chart_2024](Images/Streetcar_Delays_Bar_Chart_2024.png)
+![Streetcar_Delays_Bar_Chart_2024](Images/Streetcar_Delays_Bar_Chart_2024.png)
+
+## Regression Modelling
+
+Our project aims to identify key factors that impact TTC streetcar delay time in minutes, referred to as `Min_Delay`. Early exploratory analysis and visualizations indicated that certain features - such as time of year, location, line, incident type, time of day - were associated with increased delays.
+
+To strengthen our insights, we experimented with various Regression Models, including Linear, KNN, and XGB. These initial models produced high R² scores (>0.90), prompting us to build a pipeline to validate and compare additional algorithms: Linear, Ridge, Lasso, Random Forest, and XGB. These pipeline results were consistent with the initial models. 
+
+However, exploratory visualizations revealed that `Min_Delay` and `Min_Gap` were highly correlated. We suspected that this strong correlation was driving the unusually high R² scores. This correlation is problematic because `Min_Delay` is not a meaningful predictor of 
+`Min_Gap`: the time gap between vehicles is a result of the delays. In other words, a streetcar being delayed increases the gap behind it - so the model was essentially "predicting delay using delay".
+
+To test this, we rebuilt the pipeline excluding `Min Gap`. The results showed significantly weaker correlations for most models (<0.08), confirming that `Min_Gap` was the dominant predictor for `Min_Delay`. Taken together, these results show that without `Min_Gap`, the remaining features do not provide sufficient predictive power for Regression Models to accurately estimate Minutes of Delay.
+
+![r2_values](Images/r2_values.png)
+
 
 -----------
 ## Brainstorming Notes Below
