@@ -11,7 +11,7 @@ Project Scope \
 Methodology \
 Data Cleaning \
 Insights from Data Visualization \
-Regression and Classification Modeling [Modeling](https://github.com/namathew7/ds6/blob/main/README.md#regression-modelling) \
+[Regression and Classification Modeling](https://github.com/namathew7/ds6/blob/main/README.md#regression-modelling) \
 Conclusions \
 Limitations \
 Ideas for Future Analyses
