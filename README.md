@@ -11,7 +11,7 @@ For our capstone project in the Data Sciences Certificate program at the Univers
 [Methodology](https://github.com/namathew7/ds6/blob/main/README.md#methodology)\
 [Data Cleaning](https://github.com/namathew7/ds6/blob/main/README.md#data-cleaning)\
 [Insights from Data Visualization](https://github.com/namathew7/ds6/blob/main/README.md#insights-from-data-visualization)\
-[Regression and Classification Modeling](https://github.com/namathew7/ds6/blob/main/README.md#regression-and-classification-modelling) \
+[Regression and Classification Modeling](https://github.com/namathew7/ds6/blob/main/README.md#regression-and-classification-modeling) \
 [Conclusions](https://github.com/namathew7/ds6/blob/main/README.md#conclusions) \
 [Limitations](https://github.com/namathew7/ds6/blob/main/README.md#limitations) \
 [Ideas for Future Analyses](https://github.com/namathew7/ds6/blob/main/README.md#ideas-for-future-analyses-things-we-would-have-done-if-we-had-more-time) \
@@ -32,7 +32,7 @@ The analysis will be validated through data splitting and performance metrics to
 
 ### Stakeholders
 
-1. TTC Operations, Planning, and Data Teams: Build predictive models and use the insights to optimize streetcar schedules.
+1. TTC Operations, Planning, and Data Team: Build predictive models and use the insights to optimize streetcar schedules.
 2. TTC Communications Team: Use insights to communicate accurate delay information.
 3. TTC Human Resources Team: Apply findings to staffing and hiring decisions.
 4. TTC Business Strategy & Insights Team: Leverage results to inform new route planning or network design.
@@ -44,8 +44,7 @@ The analysis will be validated through data splitting and performance metrics to
     - Primary Dataset: TTC Streetcar Delay Data was obtained from the [City of Toronto’s Open Data Portal – TTC Streetcar Delay Data](https://open.toronto.ca/dataset/ttc-streetcar-delay-data/)
     - Weather Data: Historical weather information was sourced from [Environment and Climate Change Canada (ECCC) using Station ID 6158355](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html)
     - TTC stops and Street Car routes were obtained from City of Toronto Map Portal
-
-- Data cleaning: Manually corrected spelling and formatting mistakes in the "Location" column, removed rows that were not part of the established TTC streetcar routes, and removed rows that contained missing values in the "Bound" column.
+- Data cleaning: Manually corrected spelling and formatting mistakes in the "Location" column, removed rows that were not part of the established TTC streetcar routes, and removed rows that contained missing values in the `Bound` column.
 - Exploratory Analysis: Used visualization techniques to understand patterns and find correlations between different variables.
 - Regression Analysis and Cross-Validation: Built various regression models and pipelines (KNN, Linear, XGBoost, Ridge, Lasso, Random Forest) to determine minutes of delay, created training and testing sets, and assessed model accuracy.
 - Classification: Built a classification model using Random Forest, to classify delays as either ‘minor’ or ‘moderate’. Created training and testing sets, used cross-validation and classification reports to assess model precision and recall.
@@ -91,7 +90,7 @@ We used TTC streetcar delay data from Toronto’s open data catalogue for the 20
 
 ## Data Cleaning
 
-Upon preliminary inspection, several inconsistencies were observed in the “Location” column and there was wide variety in how the same locations were reported.  Examples include different versions of the same intersection (ex. “Yonge and Dundas” vs. “Dundas and Yonge”), misspellings (I can never spell “Roncesvalles” correctly, either), typos (“Bathust” vs. “Bathurst”), punctuation (“St. Clair” vs “St Clair”),  abbreviations (“DVP” vs. “Don Valley Parkway”), and different ways to describe the same street (ex. “Queen”, “Queen Street”, “Queen Street West”, “Queen St”, “Queen Street W”, etc.).  Given the diversity of these errors, it was deemed important to manually clean the original excel file.  Location names were processed through Excel’s spellcheck feature, and manually screened for issues with typos, punctuation, and naming inconsistencies.  This manual process reduced the number of unique locations from 2104 to 1573.  The excel file containing manually-cleaned location data is made available as  “ttc-streetcar-delay-data-2024_location_cleaning.xlsx”.  Given how variable the errors in `Location` were, it was very difficult to try and use a code-based cleaning method.  It is likely that the manual cleaning introduced irreproducibility, unintentional errors, and/or accidental misassignments.  To ensure quality location data in future years, we highly encourage the TTC to standardize the way they record location information.
+Upon preliminary inspection, several inconsistencies were observed in the `Location` column and there was wide variety in how the same locations were reported.  Examples include different versions of the same intersection (ex. “Yonge and Dundas” vs. “Dundas and Yonge”), misspellings (I can never spell “Roncesvalles” correctly, either), typos (“Bathust” vs. “Bathurst”), punctuation (“St. Clair” vs “St Clair”),  abbreviations (“DVP” vs. “Don Valley Parkway”), and different ways to describe the same street (ex. “Queen”, “Queen Street”, “Queen Street West”, “Queen St”, “Queen Street W”, etc.).  Given the diversity of these errors, it was deemed important to manually clean the original excel file.  Location names were processed through Excel’s spellcheck feature, and manually screened for issues with typos, punctuation, and naming inconsistencies.  This manual process reduced the number of unique locations from 2104 to 1573.  The excel file containing manually-cleaned location data is made available as  “ttc-streetcar-delay-data-2024_location_cleaning.xlsx”.  Given how variable the errors in `Location` were, it was very difficult to try and use a code-based cleaning method.  It is likely that the manual cleaning introduced irreproducibility, unintentional errors, and/or accidental misassignments.  To ensure quality location data in future years, we highly encourage the TTC to standardize the way they record location information.
 
 After cleaning the `Location` data, the data were further cleaned in Excel to eliminate data not associated with one of the established TTC streetcar routes defined online: https://www.ttc.ca/routes-and-schedules/listroutes/streetcar.  Rows of data where the “Line” column did not match one of these lines were simply deleted.  For the `Bound` column, all data were supposed to be either blank or a cardinal direction (`N`, `S`, `E`, or `W`).  Entries not in one of these categories were removed from the dataset (7 rows). All columns were checked for null values, and it was found that only the “Bound” column contained null values. Since it was not possible to use imputation for this type of value, or remove them from the dataset entirely (1971 rows were null), we kept these rows as is. Finally, we checked that each column had the expected data type, and no errors were found.
 
@@ -112,13 +111,15 @@ The following table describes the unique values in each column, before and after
 
 ### Enhancing the Data
 
-As part of enhancing the data, several new columns were introduced: `Month`, `Week`, `Day of Month`, `Hour of Day`, and `Seasons`.  These columns are designed to further examine whether data on time of day or time of year and help predict length of delay or time of incident.  The resulting excel file is made available as “ttc-streetcar-delay-data-2024_cleaned.xlsx” and was used as the basis for all exploratory data analyses (shown here: https://drive.google.com/drive/u/0/folders/1Us1BW8OZXzJBEpC5erFqJYmCesQS-U9V).
+As part of enhancing the data, several new columns were introduced: `Month`, `Week`, `Day of Month`, `Hour of Day`, and `Seasons`.  These columns are designed to further examine whether data on time of day or time of year and help predict length of delay or time of incident.  The resulting excel file is made available as [`ttc-streetcar-delay-data-2024_cleaned.xlsx`](https://drive.google.com/drive/u/0/folders/1Us1BW8OZXzJBEpC5erFqJYmCesQS-U9V) and was used as the basis for all exploratory data analyses.
+
+Weather was identified as a potential variable that could contribute to streetcar delays. This hourly data was sourced from [Environment Canada’s historical weather data Station 6158355](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html). One csv file was available for each month of 2024 and the files were merged into one dataframe using the pandas library. The columns that were used are Date/Time (LST), Temperature(°C) and Precipitation (mm). We used the Date/ Time column to merge the weather dataframe with the TTC delays dataframe.
 
 ## Insights from Data Visualization
 
 **Chart 1: Distribution of Delay Durations** 
 
-The most frequent duration of delays were found to be in the range of 11-15 minutes
+*The most frequent duration of delays were found to be in the range of 11-15 minutes*
 
 The vast majority of delay incidents fall within the shorter time ranges, with delays between 11–15 minutes being the most common at 5,408 incidents. This is followed by the 0–5 minute range with 2,868 incidents and the 6–10 minute range with 2,369 incidents, indicating that more than three-quarters of all delays occur within the first 15 minutes. After this point, the frequency of delays drops sharply: the 16–20 minute and 21–30 minute ranges show 682 and 977 incidents respectively, and the 31–45 minute range has 711 incidents. Longer delays are relatively rare, with only 301 incidents in the 46–60 minute range, 320 in the 61–90 minute range, 112 in the 91–120 minute range, and 182 incidents lasting 120 minutes or more. Overall, the data suggests that while long delays do occur, they make up a small portion of total incidents, and efforts to improve performance would be most impactful if focused on reducing the short but highly frequent delays—particularly those in the 11–15 minute range, where the highest concentration of issues is observed.
 
@@ -281,7 +282,7 @@ The 501 Queen Streetcar experienced major service disruptions throughout much of
 
 *Inconsistent Location Data and Its Impact on Spatial Analysis*
 
-An in-depth spatial analysis conducted using additional GIS software revealed that the location dataset contains a wide range of entries beyond official TTC streetcar stops, including street names, intersections, landmarks, and inconsistently formatted locations. Because of this variability, it is not possible to reliably match these locations to official stop coordinates through automated processes, necessitating extensive manual review and additional data cleaning steps. For example, a test conducted on Route 501 showed that the official number of stops is 88, yet the dataset contains 471 unique location entries associated with this line. Many of these entries do not correspond to the actual route and appear to be erroneous or misreported locations from other parts of the city.
+An in-depth spatial analysis conducted using additional GIS software revealed that the location dataset contains a wide range of entries beyond official TTC streetcar stops, including street names, intersections, landmarks, and inconsistently formatted locations. Because of this variability, it is not possible to reliably match these locations to official stop coordinates through automated processes, necessitating extensive manual review and additional data cleaning steps. For example, a test conducted on Route **501** showed that the official number of stops is **88**, yet the dataset contains **471 unique location entries** associated with this line. Many of these entries do not correspond to the actual route and appear to be erroneous or misreported locations from other parts of the city.
 If standardized stop codes were used during the delay recording process, a far more accurate and meaningful spatial analysis could be conducted, enabling precise mapping of delay hotspots and supporting stronger operational insights for network planning.
 
 
