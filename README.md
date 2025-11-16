@@ -106,7 +106,7 @@ Most incident types fall within a moderate delay range—generally between 8 and
 
 Temporal patterns are important to understand as they can indicate important variables (hour, day, week, month, season). When looking at the time series data, there were no obvious monthly trends. Total minutes delayed by season was higher in the summer and winter than the fall and spring. In the summer, this is largely due to operations delays and in the winter, these delays could be due to weather. Fall was the season with the lowest frequency of delays. Operations delays peaked on Saturdays, which is often when the TTC has service disruptions. In the hourly data, there were peaks during the morning and evening rush hours, as expected. 
 
-![minutes delayed by date](Images/Images/minutes\ delayed\ by\ date.png)
+![minutes delayed by date](Images/minutes_delayed_by_date.png)
 ![day-of-week_vs_delays](Images/day-of-week_vs_delays.png)
 
 #### Spatial and Operational Insights 
