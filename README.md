@@ -133,7 +133,7 @@ Another important attribute of delay is understanding the pattern of incident ty
 
 This visualization highlights that certain incident types such as “Operations, Mechanical, Diversion, and Emergency Services” not only occur frequently but also generate a significant share of moderate and major delays. In contrast, categories like “Rail/Switches, Utilized Off Route, and Overhead” tend to produce mostly minor delays, indicating they are typically resolved more quickly. The distribution of severity across categories provides valuable insight into which incident types have the greatest operational impact, helping identify where targeted mitigation strategies may reduce overall service disruption.
 
-![incidient_severity_distribution_type](Images/incidient\ severity\ distribution\ type.png))
+![incident_severity_distribution_type](Images/incident_severity_distribution_type.png))
 
 **Chart 8: Correlation Analysis** 
 
@@ -157,13 +157,14 @@ Additionally, heavily used lines like 501, 503, 504, 506, 507, and 512 show elev
 
 We were particularly interested in learning whether certain locations were associated with increased delays.  Of the 1400+ unique locations in our cleaned database, only 27 were responsible for more than 100 delays in 2024.  That means, fewer than 2% of the locations hosted nearly a third of delay incidents and a quarter of total delay time.  The TTC could make a large impact with few resources by focusing on these locations.
 
+![Location_Incident_Percentages](Images/Location_Incident_Percentages.png)
+
 In the bar chart, the x axis shows high incident locations.  The left y axis shows the number of delay incidents per year, color coded by incident type.  Broadview and Spadina stations seem to have numerous sanitation and emergency services delays, while Kingston Loop and Kingston Road Loop  had an alarming number of security delays.  The TTC could minimize delays by coordinating with cleaning and emergency crews at Broadview and Dundas West stations to ensure better access and / or more frequent servicing.  To address the security issues at Kingston Loop and Kingston Road Loop, the TTC may want to partner with local law enforcement.
 
 Union Station remains plagued by a high relative percentage of general delays, but this “insight” will not surprise any Torontonian.
 
 Data on accumulated delay time are overlaid as a line plot.  The location with the high total delay time in 2024 was King and Church, and I suspect the long delays were the result of diversions.
 
-![Location_Incident_Percentages](Images/Location_Incident_Percentages.png)
 ![Images/Streetcar_Delays_Bar_Chart_2024](Images/Streetcar_Delays_Bar_Chart_2024.png)
 
 -----------
