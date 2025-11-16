@@ -298,14 +298,14 @@ Our analyses of the 2024 Streetcar Delay Dataset could be significantly enhanced
   8)	Additionally, we could try our analyses with data from additional years.  Stakeholders would benefit from knowing whether the identified trends were specific to 2024, or if they are longstanding issues.  We would also be very curious to see shifts in TTC usage and delays before and after COVID.
 
 ## Team Videos
-1. [Chloe Li](https://docs.google.com/videos/d/1lk8i2l89XcG3l--vBtuJQp7BWutnXQGW4sY_Xritpxg/edit?usp=sharing)\
-2. 
-3. [Natasha Mathew](https://drive.google.com/file/d/1eOikP5jQHNjC3eKNXklBek-qh84V39uW/view?usp=sharing)\
-4. [Tanner Ferreira](https://drive.google.com/file/d/1H1v4qq31cax07nQnwEBBvgVh9x35rEhS/view?usp=drive_link)\
-5. [Semiha Demirbas Caglayan](https://drive.google.com/file/d/1YcWnNi2xQmsNJvs5g8GGFamC--lB3jgO/view?usp=sharing)
+1. [Chloe Li](https://docs.google.com/videos/d/1lk8i2l89XcG3l--vBtuJQp7BWutnXQGW4sY_Xritpxg/edit?usp=sharing)
+2. Christine Romano
+3. [Natasha Mathew](https://drive.google.com/file/d/1eOikP5jQHNjC3eKNXklBek-qh84V39uW/view?usp=sharing)
+4. [Semiha Demirbas Caglayan](https://drive.google.com/file/d/1YcWnNi2xQmsNJvs5g8GGFamC--lB3jgO/view?usp=sharing)
+5. [Tanner Ferreira](https://drive.google.com/file/d/1H1v4qq31cax07nQnwEBBvgVh9x35rEhS/view?usp=drive_link)
 
 ## Credits and Source
-Dataset sourced from: [City of Toronto’s Open Data Portal: TTC Streetcar Delay Data](https://open.toronto.ca/dataset/ttc-streetcar-delay-data/),\
+Dataset sourced from [City of Toronto’s Open Data Portal: TTC Streetcar Delay Data](https://open.toronto.ca/dataset/ttc-streetcar-delay-data/) and
 [Environment Canada Weather Data Station 6158355](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html)
 
 -----------
