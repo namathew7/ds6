@@ -78,6 +78,17 @@ The following table describes the unique values in each column, before and after
 
 As part of enhancing the data, several new columns were introduced: ‘Month’, ‘Week’, ‘Day of Month’, ‘Hour of Day’, and ‘Seasons’.  These columns are designed to further examine whether data on time of day or time of year and help predict length of delay or time of incident.  The resulting excel file is made available as “ttc-streetcar-delay-data-2024_cleaned.xlsx” and was used as the basis for all exploratory data analyses (shown here: https://drive.google.com/drive/u/0/folders/1Us1BW8OZXzJBEpC5erFqJYmCesQS-U9V).
 
+#### Summary Statistics
+
+**Chart 1: Distribution of delay durations** 
+*The most frequent duration of delays were found to be in the range of 11-15 minutes*
+
+The vast majority of delay incidents fall within the shorter time ranges, with delays between 11–15 minutes being the most common at 5,408 incidents. This is followed by the 0–5 minute range with 2,868 incidents and the 6–10 minute range with 2,369 incidents, indicating that more than three-quarters of all delays occur within the first 15 minutes. After this point, the frequency of delays drops sharply: the 16–20 minute and 21–30 minute ranges show 682 and 977 incidents respectively, and the 31–45 minute range has 711 incidents. Longer delays are relatively rare, with only 301 incidents in the 46–60 minute range, 320 in the 61–90 minute range, 112 in the 91–120 minute range, and 182 incidents lasting 120 minutes or more. Overall, the data suggests that while long delays do occur, they make up a small portion of total incidents, and efforts to improve performance would be most impactful if focused on reducing the short but highly frequent delays—particularly those in the 11–15 minute range, where the highest concentration of issues is observed.
+
+![Binned_Delay_Min](Images/Binned_Delay_Min.png)
+
+
+
 -----------
 ## Brainstorming Notes Below
 ### Visualizations:
