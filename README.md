@@ -31,13 +31,44 @@ Assisting in resource deployment by estimating the expected duration of delays (
 The analysis will be validated through data splitting and performance metrics to ensure reliability. Additionally, the project will include insights and recommendations on the situations most likely to cause the longest delays. These insights could also inform HR planning by identifying patterns that impact staffing needs.
 
 ### Stakeholders
-TTC Communications Team – Use insights to communicate accurate delay information.
 
-TTC HR – Apply findings to staffing and hiring decisions.
+1. TTC Operations, Planning, and Data Teams: Build predictive models and use the insights to optimize streetcar schedules.
+2. TTC Communications Team: Use insights to communicate accurate delay information.
+3. TTC Human Resources Team: Apply findings to staffing and hiring decisions.
+4. TTC Business Strategy & Insights Team: Leverage results to inform new route planning or network design.
+5. TTC Users: Knowledge of factors likely to cause delays, which can help them plan their commutes.
 
-Business Strategy & Insights Team – Leverage results to inform new route planning or network design.
+## Methodology
+### Steps Taken:
+- Data acquisition:  
+    - Primary Dataset: TTC Streetcar Delay Data was obtained from the [City of Toronto’s Open Data Portal – TTC Streetcar Delay Data](https://open.toronto.ca/dataset/ttc-streetcar-delay-data/)
+    - Weather Data: Historical weather information was sourced from [Environment and Climate Change Canada (ECCC) using Station ID 6158355](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html)
+    - TTC stops and Street Car routes were obtained from City of Toronto Map Portal
 
-TTC Users - Knowledge of factors likely to cause delays, which can help them plan their commutes. 
+- Data cleaning: Manually corrected spelling and formatting mistakes in the "Location" column, removed rows that were not part of the established TTC streetcar routes, and removed rows that contained missing values in the "Bound" column.
+- Exploratory Analysis: Used visualization techniques to understand patterns and find correlations between different variables.
+- Regression Analysis and Cross-Validation: Built various regression models and pipelines (KNN, Linear, XGBoost, Ridge, Lasso, Random Forest) to determine minutes of delay, created training and testing sets, and assessed model accuracy.
+- Classification: Built a classification model using Random Forest, to classify delays as either ‘minor’ or ‘moderate’. Created training and testing sets, used cross-validation and classification reports to assess model precision and recall.
+- Visualization: Created bar plots, line plots, and heatmaps to represent insight and model results.
+- Recommendations for the TTC
+- Conclusion
+
+### Technical Stack:
+
+**Programming Languages:**
+Python
+
+**Python Libraries Used:**
+- Numpy: matrix operations
+- Pandas: data analysis
+- Glob: bulk csv import (weather data)
+- Matplotlib: creating graphs and plots
+- Seaborn: enhancing matplotlib plots
+- Scikit Learn: regression analysis, classification analysis, cross-validation, preprocessing, pipeline workflows, metrics
+- XGBoost: regression analysis
+
+**Other Software:** 
+Excel, Geographic Information Systems (ArcMap)
 
 ### Describing the Dataset
 
@@ -58,13 +89,11 @@ We used TTC streetcar delay data from Toronto’s open data catalogue for the 20
 | Vehicle     | Streetcar vehicle number                         |
 
 
-## Methodology
+## Data Cleaning
 
-### Data Cleaning Process
+Upon preliminary inspection, several inconsistencies were observed in the “Location” column and there was wide variety in how the same locations were reported.  Examples include different versions of the same intersection (ex. “Yonge and Dundas” vs. “Dundas and Yonge”), misspellings (I can never spell “Roncesvalles” correctly, either), typos (“Bathust” vs. “Bathurst”), punctuation (“St. Clair” vs “St Clair”),  abbreviations (“DVP” vs. “Don Valley Parkway”), and different ways to describe the same street (ex. “Queen”, “Queen Street”, “Queen Street West”, “Queen St”, “Queen Street W”, etc.).  Given the diversity of these errors, it was deemed important to manually clean the original excel file.  Location names were processed through Excel’s spellcheck feature, and manually screened for issues with typos, punctuation, and naming inconsistencies.  This manual process reduced the number of unique locations from 2104 to 1573.  The excel file containing manually-cleaned location data is made available as  “ttc-streetcar-delay-data-2024_location_cleaning.xlsx”.  Given how variable the errors in `Location` were, it was very difficult to try and use a code-based cleaning method.  It is likely that the manual cleaning introduced irreproducibility, unintentional errors, and/or accidental misassignments.  To ensure quality location data in future years, we highly encourage the TTC to standardize the way they record location information.
 
-Upon preliminary inspection, several inconsistencies were observed in the “Location” column and there was wide variety in how the same locations were reported.  Examples include different versions of the same intersection (ex. “Yonge and Dundas” vs. “Dundas and Yonge”), misspellings (I can never spell “Roncesvalles” correctly, either), typos (“Bathust” vs. “Bathurst”), punctuation (“St. Clair” vs “St Clair”),  abbreviations (“DVP” vs. “Don Valley Parkway”), and different ways to describe the same street (ex. “Queen”, “Queen Street”, “Queen Street West”, “Queen St”, “Queen Street W”, etc.).  Given the diversity of these errors, it was deemed important to manually clean the original excel file.  Location names were processed through Excel’s spellcheck feature, and manually screened for issues with typos, punctuation, and naming inconsistencies.  This manual process reduced the number of unique locations from 2104 to 1573.  The excel file containing manually-cleaned location data is made available as  “ttc-streetcar-delay-data-2024_location_cleaning.xlsx”.  Given how variable the errors in “Location” were, it was very difficult to try and use a code-based cleaning method.  It is likely that the manual cleaning introduced irreproducibility, unintentional errors, and/or accidental misassignments.  To ensure quality location data in future years, we highly encourage the TTC to standardize the way they record location information.
-
-After cleaning the “Location” data, the data were further cleaned in Excel to eliminate data not associated with one of the established TTC streetcar routes defined online: https://www.ttc.ca/routes-and-schedules/listroutes/streetcar.  Rows of data where the “Line” column did not match one of these lines were simply deleted.  For the “Bound” column, all data were supposed to be either blank or a cardinal direction (“N”, “S”, “E”, or “W”).  Entries not in one of these categories were removed from the dataset (7 rows). All columns were checked for null values, and it was found that only the “Bound” column contained null values. Since it was not possible to use imputation for this type of value, or remove them from the dataset entirely (1971 rows were null), we kept these rows as is. Finally, we checked that each column had the expected data type, and no errors were found.
+After cleaning the `Location` data, the data were further cleaned in Excel to eliminate data not associated with one of the established TTC streetcar routes defined online: https://www.ttc.ca/routes-and-schedules/listroutes/streetcar.  Rows of data where the “Line” column did not match one of these lines were simply deleted.  For the `Bound` column, all data were supposed to be either blank or a cardinal direction (`N`, `S`, `E`, or `W`).  Entries not in one of these categories were removed from the dataset (7 rows). All columns were checked for null values, and it was found that only the “Bound” column contained null values. Since it was not possible to use imputation for this type of value, or remove them from the dataset entirely (1971 rows were null), we kept these rows as is. Finally, we checked that each column had the expected data type, and no errors were found.
 
 The following table describes the unique values in each column, before and after cleaning:
 
@@ -83,9 +112,9 @@ The following table describes the unique values in each column, before and after
 
 ### Enhancing the Data
 
-As part of enhancing the data, several new columns were introduced: ‘Month’, ‘Week’, ‘Day of Month’, ‘Hour of Day’, and ‘Seasons’.  These columns are designed to further examine whether data on time of day or time of year and help predict length of delay or time of incident.  The resulting excel file is made available as “ttc-streetcar-delay-data-2024_cleaned.xlsx” and was used as the basis for all exploratory data analyses (shown here: https://drive.google.com/drive/u/0/folders/1Us1BW8OZXzJBEpC5erFqJYmCesQS-U9V).
+As part of enhancing the data, several new columns were introduced: `Month`, `Week`, `Day of Month`, `Hour of Day`, and `Seasons`.  These columns are designed to further examine whether data on time of day or time of year and help predict length of delay or time of incident.  The resulting excel file is made available as “ttc-streetcar-delay-data-2024_cleaned.xlsx” and was used as the basis for all exploratory data analyses (shown here: https://drive.google.com/drive/u/0/folders/1Us1BW8OZXzJBEpC5erFqJYmCesQS-U9V).
 
-### Insights from Data Visualization
+## Insights from Data Visualization
 
 **Chart 1: Distribution of Delay Durations** 
 
@@ -138,7 +167,7 @@ The variability in delay duration reveals another dimension of vulnerability. Li
 
 Another important attribute of delay is understanding the pattern of incident types and how they vary in severity. The stacked bar chart illustrates how each incident category contributes to minor, moderate, and major delays across the TTC streetcar network. Severity is classified into three levels: Minor delays lasting less than 10 minutes, Moderate delays lasting 10–25 minutes, and Major delays exceeding 25 minutes.
 
-This visualization highlights that certain incident types such as “Operations, Mechanical, Diversion, and Emergency Services” not only occur frequently but also generate a significant share of moderate and major delays. In contrast, categories like “Rail/Switches, Utilized Off Route, and Overhead” tend to produce mostly minor delays, indicating they are typically resolved more quickly. The distribution of severity across categories provides valuable insight into which incident types have the greatest operational impact, helping identify where targeted mitigation strategies may reduce overall service disruption.
+This visualization highlights that certain incident types such as `Operations`, `Mechanical`, `Diversion`, and `Emergency Services` not only occur frequently but also generate a significant share of moderate and major delays. In contrast, categories like `Rail/Switches`, `Utilized Off Route`, and `Overhead` tend to produce mostly minor delays, indicating they are typically resolved more quickly. The distribution of severity across categories provides valuable insight into which incident types have the greatest operational impact, helping identify where targeted mitigation strategies may reduce overall service disruption.
 
 ![incident_severity_distribution_type](Images/incident_severity_distribution_type.png)
 
@@ -146,7 +175,7 @@ This visualization highlights that certain incident types such as “Operations,
 
 Before progressing to modelling, a correlation heatmap is generated to explore the relationships among the key attributes, including both numerical variables and encoded categorical fields. This visualization helps identify whether any strong linear associations exist that could influence model performance, introduce redundancy, or highlight meaningful patterns in the delay data.
 
-Overall, the heatmap shows very weak correlations among most variables, indicating that no single attribute strongly predicts delay duration or gap time on its own. The only prominent relationship is the expected high correlation between Min Delay and Min Gap, as both metrics reflect components of the overall disruption duration. A moderate correlation is also visible between Line and Time of Day, suggesting that certain lines operate more frequently or more heavily during specific hours, but this pattern is not strong enough to dominate model behaviour. Seasonal, daily, and date-related fields show very low correlations with operational attributes such as delays, incidents, or vehicle number, reinforcing the idea that delays are influenced by complex, non-linear, and multi-factor interactions rather than simple linear relationships.
+Overall, the heatmap shows very weak correlations among most variables, indicating that no single attribute strongly predicts delay duration or gap time on its own. The only prominent relationship is the expected high correlation between Min Delay and Min Gap, as both metrics reflect components of the overall disruption duration. A moderate correlation is also visible between `Line` and `Time of Day`, suggesting that certain lines operate more frequently or more heavily during specific hours, but this pattern is not strong enough to dominate model behaviour. Seasonal, daily, and date-related fields show very low correlations with operational attributes such as delays, incidents, or vehicle number, reinforcing the idea that delays are influenced by complex, non-linear, and multi-factor interactions rather than simple linear relationships.
 
 ![Correlation_heat_map1](Images/Correlation_heat_map1.png)
 
@@ -176,7 +205,9 @@ Data on accumulated delay time are overlaid as a line plot.  The location with t
 
 ![Streetcar_Delays_Bar_Chart_2024](Images/Streetcar_Delays_Bar_Chart_2024.png)
 
-## Regression Modelling
+## Regression and Classification Modeling
+
+### Regression Modeling
 
 Our project aims to identify key factors that impact TTC streetcar delay time in minutes, referred to as `Min_Delay`. Early exploratory analysis and visualizations indicated that certain features - such as time of year, location, line, incident type, time of day - were associated with increased delays.
 
@@ -189,7 +220,7 @@ To test this, we rebuilt the pipeline excluding `Min Gap`. The results showed si
 
 ![r2_values](Images/r2_values.png)
 
-## Classification Modelling 
+### Classification Modelling 
 
 Since the regression model did not satisfy the goal of predicting minute delay using the features in the ttc dataset, we decided to try classifying the minute delays into two categories: major and minor. We used Environment Canada’s weather data to examine whether temperature and precipitation would be good features to include. We merged the ttc and weather dataframes using month, day and hour as these were the common columns between the two dataframes.
 
@@ -199,19 +230,19 @@ We used Random Forest classification as it is good at handling noisy and mixed-t
 
 If location data was more accurate, it would have likely been a very strong feature in the model. It may be beneficial to create separate classification models for each incident type, as the factors that cause each type of incident likely vary. The threshold we used to separate minor and moderate delays was 10 minutes (median), but the model may produce different results if even slightly different thresholds are used, as 10 is also the mode of the dataset. A different threshold could more reliably differentiate between the two Delay Classes.
 
-## Summary of Regression and Classification Attempts
+### Summary of Regression and Classification Attempts
 
-Several models were explored to estimate ‘Min Delay.’ Delay duration is highly predictable when the ‘Min Gap’ feature is included, with models achieving R² values above 0.96 and average prediction errors of 5–10 minutes, highlighting the strong predictive power of this variable. Table 1 summarizes the performance of each model. However, when ‘Min Gap’ is removed, predictive performance collapses, with R² values falling near zero, indicating that delay time becomes largely unpredictable without this key feature. It is also notable that the performance of classification models improve when including a weather variable, suggesting that environmental factors can provide additional predictive insight. Overall, classification models appear to be more useful for understanding expected delays based on contributing factors.
+Several models were explored to estimate `Min Delay`. Delay duration is highly predictable when the ‘Min Gap’ feature is included, with models achieving R² values above 0.96 and average prediction errors of 5–10 minutes, highlighting the strong predictive power of this variable. Table 1 summarizes the performance of each model. However, when ‘Min Gap’ is removed, predictive performance collapses, with R² values falling near zero, indicating that delay time becomes largely unpredictable without this key feature. It is also notable that the performance of classification models improve when including a weather variable, suggesting that environmental factors can provide additional predictive insight. Overall, classification models appear to be more useful for understanding expected delays based on contributing factors.
 
-*Table 1a: Performance results when including ‘Min Gap’*
+*Table 1a: Performance results when including `Min Gap`*
 ![Table_1a](Images/Table_1a.png)
 
-*Table 1b: Performance results when excluding ‘Min Gap’*
+*Table 1b: Performance results when excluding `Min Gap`*
 ![Table_1b](Images/Table_1b.png)
 
 ## Conclusions
 
-*Which lines and incident types create the longest delays*
+*Lines and incident types that create the longest delays*
 
 Overall, our analysis shows that Toronto’s streetcar network reveals clear patterns of vulnerability across different routes. While lines such as 303, 508, 310, 301, and 305 experience the longest delays per incident, other busy routes like 501, 504, 505, 510, 506, and 512 are more susceptible to frequent disruptions. Incident severity patterns further highlight that categories such as Operations, Mechanical, Diversion, and Emergency Services contribute disproportionately to moderate and major delays, whereas issues related to Rail/Switches, Utilized Off Route, and Overhead are more often resolved quickly. Together, these findings emphasize the need for targeted mitigation strategies—both for routes with consistently long delays and those with high disruption frequency—to improve the resilience and reliability of the streetcar network.
 
@@ -219,20 +250,42 @@ Overall, our analysis shows that Toronto’s streetcar network reveals clear pat
 
 To improve the reliability and resilience of the streetcar network, the TTC should adopt a strategy that addresses both the duration and frequency of service disruptions. Lines such as 303, 508, 310, 301, and 305, which experience the longest delays, should be prioritized for operational improvements, including dedicated transit lanes, flexible scheduling, etc. High-frequency incident lines, including 501, 504, 505, 510, 506, and 512, would likely benefit from enhanced monitoring and closer coordination with traffic management to reduce disruption occurrence. Staffing strategies should include deploying additional personnel to these critical lines, creating specialized rapid-response teams for major incidents, and cross-training staff to increase flexibility during disruptions. Additionally, focusing resources on incident types that contribute most to moderate and major delays—namely Operations, Mechanical, Diversion, and Emergency Services—through rapid-response teams or preventive maintenance can further reduce delay times. Collectively, these measures could potentially enable the TTC to enhance service reliability, manage delays more effectively, and provide a better overall experience for riders.
 
-
 ## Limitations
 
-The dataset may be subject to several types of total survey errors - primarily representation errors and processing errors. Since the TTC did not publish information about how the data were collected, or how the frame and sample population was selected, this observational dataset may be subject to coverage errors. We have reason to believe many entries were recorded manually, as indicated by frequent spelling and formatting mistakes in the `Location` field. This suggests the possibility of processing errors due to data-entry mistakes. These issues contributed to a laborious data cleaning process, which may have further contributed to further bias that could affect the representativeness of our analytical results.
+*Possible Coverage & Sampling Errors*
+
+The absence of documentation on how delay events were observed, recorded, or sampled means the dataset may suffer from Coverage Errors and Sampling Bias. Without knowing the sampling frame or selection process, it is unclear whether the dataset captures all delay events or only a subset. As a result, the findings may not fully represent typical TTC streetcar delay patterns across the system.
+
+
+*Processing Errors and Data-Entry Inconsistencies*
+
+There is evidence of manual data entry - most notably frequent misspellings and formatting inconsistencies in the Location field. This suggests the potential for Processing Errors, such as misclassification or incorrect labeling of locations. These issues required substantial manual cleaning, which itself introduces an additional opportunity for subjective error and data transformation bias.
+
+
+*Manual Cleaning and Reproducibility Concerns*
+
+Cleaning the Location field required manual interpretation and correction, a process that is time-consuming, prone to human error, not easily reproducible, and difficult to scale.
+
+Additionally, during cleaning, rows with null values in the Bound column were removed. Because the impact of these missing values on the analysis is unknown, their exclusion may influence the final results in ways that cannot be quantified.
+
+
+*Temporal Limitations of the Dataset*
+
+The analysis relies solely on data from 2024, but it is unclear whether 2024 reflects typical delay patterns or contains anomalies. Future work should compare multiple years to determine whether observed patterns persist over time.
+
+
+*External Disruptions to Route Operations*
+
+The 501 Queen Streetcar experienced major service disruptions throughout much of 2024, including long-term bus replacements and diversions (as documented by the TTC). It is unclear how these disruptions were recorded in the dataset or whether they were systematically accounted for. This uncertainty may have introduced route-specific bias into delay counts and trend interpretations.
+
+
+*Inconsistent Location Data and Its Impact on Spatial Analysis*
 
 An in-depth spatial analysis conducted using additional GIS software revealed that the location dataset contains a wide range of entries beyond official TTC streetcar stops, including street names, intersections, landmarks, and inconsistently formatted locations. Because of this variability, it is not possible to reliably match these locations to official stop coordinates through automated processes, necessitating extensive manual review and additional data cleaning steps. For example, a test conducted on Route 501 showed that the official number of stops is 88, yet the dataset contains 471 unique location entries associated with this line. Many of these entries do not correspond to the actual route and appear to be erroneous or misreported locations from other parts of the city.
 If standardized stop codes were used during the delay recording process, a far more accurate and meaningful spatial analysis could be conducted, enabling precise mapping of delay hotspots and supporting stronger operational insights for network planning.
 
-Additional limitations include the decision to only work with 2024 data.  If more time were available, we could expand our analyses to additional years to capture whether the trends we have observed are longstanding versus temporary problems.  We also note that we had to remove null values in the "Bound" column, and these datapoints may have provided helpful insights. 
 
-Finally, a significant disruption occurred on the 501 Queen Street streetcar route for most months of 2024. The streetcars were either replaced by buses or diverted elsewhere, as reported by the TTC (links [here](https://www.ttc.ca/news/2024/April/Temporary-streetcar-diversions-on-section-of-Queen-starting-Monday) and [here](https://www.ttc.ca/about-the-ttc/projects-and-plans/Adelaide-Street-track-renewal)). It is unclear how these disruptions were reflected or adjusted for the dataset, and this uncertainty may have contributed to bias in our results.
-
-
-## Ideas for Future Analyses (things we would have done if we had more time).
+## Ideas for Future Analyses (things we would have done if we had more time)
 
 Our analyses of the 2024 Streetcar Delay Dataset could be significantly enhanced. If more time were available, here are some avenues we would pursue:
   1)	Clean the “Location” information even more thoroughly.  We also encourage the TTC to automate the way they record locations.
@@ -245,9 +298,11 @@ Our analyses of the 2024 Streetcar Delay Dataset could be significantly enhanced
   8)	Additionally, we could try our analyses with data from additional years.  Stakeholders would benefit from knowing whether the identified trends were specific to 2024, or if they are longstanding issues.  We would also be very curious to see shifts in TTC usage and delays before and after COVID.
 
 ## Team Videos
-Natasha Mathew: https://drive.google.com/file/d/1eOikP5jQHNjC3eKNXklBek-qh84V39uW/view?usp=sharing \
-Tanner Ferreira: https://drive.google.com/file/d/1H1v4qq31cax07nQnwEBBvgVh9x35rEhS/view?usp=drive_link \
-Semiha Demirbas Caglayan: https://drive.google.com/file/d/1YcWnNi2xQmsNJvs5g8GGFamC--lB3jgO/view?usp=sharing
+1. [Chloe Li](https://docs.google.com/videos/d/1lk8i2l89XcG3l--vBtuJQp7BWutnXQGW4sY_Xritpxg/edit?usp=sharing)\
+2. 
+3. [Natasha Mathew](https://drive.google.com/file/d/1eOikP5jQHNjC3eKNXklBek-qh84V39uW/view?usp=sharing)\
+4. [Tanner Ferreira](https://drive.google.com/file/d/1H1v4qq31cax07nQnwEBBvgVh9x35rEhS/view?usp=drive_link)\
+5. [Semiha Demirbas Caglayan](https://drive.google.com/file/d/1YcWnNi2xQmsNJvs5g8GGFamC--lB3jgO/view?usp=sharing)
 
 ## Credits and Source
 Dataset sourced from: [City of Toronto’s Open Data Portal: TTC Streetcar Delay Data](https://open.toronto.ca/dataset/ttc-streetcar-delay-data/),\
