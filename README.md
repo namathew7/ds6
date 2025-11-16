@@ -180,6 +180,59 @@ To test this, we rebuilt the pipeline excluding `Min Gap`. The results showed si
 
 ![r2_values](Images/r2_values.png)
 
+## Classification Modelling 
+
+Since the regression model did not satisfy the goal of predicting minute delay using the features in the ttc dataset, we decided to try classifying the minute delays into two categories: major and minor. We used Environment Canada’s weather data to examine whether temperature and precipitation would be good features to include. We merged the ttc and weather dataframes using month, day and hour as these were the common columns between the two dataframes.
+
+To determine how to classify ‘minor’ versus ‘moderate’ delays, we looked at the descriptive statistics of the original dataset. Delays were classified as minor if they were less than the median (10 min) and moderate if they were between the median and 1.5 IQR + Q3 (10-25 min, inclusive). Not included in our model were ‘0’ values in the Min Delay column (signified no delay) and major (> 25 min) delays. Major delays were greater than 1.5 IQR + Q3 and considered outliers of the dataset. These delays are anomalistic and likely hard to predict or classify accurately. We wanted to use location as a feature for this model, so we also removed any location that appeared less than 5 times in the dataframe.These locations are likely to be typos or rare delay locations.
+
+We used Random Forest classification as it is good at handling noisy and mixed-type data that has many independent variables. The overall model accuracy was 0.82, but the recall (ability to find all actual positives) for minor delays was only 0.57. The precision (proportion of actual positives that were correct) was good for both minor (0.77) and moderate (0.83) classification categories. The features with the greatest importance were hour, temperature, week, day and month. 
+
+If location data was more accurate, it would have likely been a very strong feature in the model. It may be beneficial to create separate classification models for each incident type, as the factors that cause each type of incident likely vary. The threshold we used to separate minor and moderate delays was 10 minutes (median), but the model may produce different results if even slightly different thresholds are used, as 10 is also the mode of the dataset. A different threshold could more reliably differentiate between the two Delay Classes.
+
+## Summary of Regression and Classification Attempts
+
+Several models were explored to estimate ‘Min Delay.’ Delay duration is highly predictable when the ‘Min Gap’ feature is included, with models achieving R² values above 0.96 and average prediction errors of 5–10 minutes, highlighting the strong predictive power of this variable. Table 1 summarizes the performance of each model. However, when ‘Min Gap’ is removed, predictive performance collapses, with R² values falling near zero, indicating that delay time becomes largely unpredictable without this key feature. It is also notable that the performance of classification models improve when including a weather variable, suggesting that environmental factors can provide additional predictive insight. Overall, classification models appear to be more useful for understanding expected delays based on contributing factors.
+
+*Table 1: Performance results when including ‘Min Gap’*
+![Table_1](Images/Table_1.png)
+
+## Conclusions
+
+*Which lines and incident types create the longest delays*
+
+Overall, our analysis shows that Toronto’s streetcar network reveals clear patterns of vulnerability across different routes. While lines such as 303, 508, 310, 301, and 305 experience the longest delays per incident, other busy routes like 501, 504, 505, 510, 506, and 512 are more susceptible to frequent disruptions. Incident severity patterns further highlight that categories such as Operations, Mechanical, Diversion, and Emergency Services contribute disproportionately to moderate and major delays, whereas issues related to Rail/Switches, Utilized Off Route, and Overhead are more often resolved quickly. Together, these findings emphasize the need for targeted mitigation strategies—both for routes with consistently long delays and those with high disruption frequency—to improve the resilience and reliability of the streetcar network.
+
+*Recommendations for TTC operations, staffing, and communications*
+To improve the reliability and resilience of the streetcar network, the TTC should adopt a strategy that addresses both the duration and frequency of service disruptions. Lines such as 303, 508, 310, 301, and 305, which experience the longest delays, should be prioritized for operational improvements, including dedicated transit lanes, flexible scheduling, etc. High-frequency incident lines, including 501, 504, 505, 510, 506, and 512, would likely benefit from enhanced monitoring and closer coordination with traffic management to reduce disruption occurrence. Staffing strategies should include deploying additional personnel to these critical lines, creating specialized rapid-response teams for major incidents, and cross-training staff to increase flexibility during disruptions. Additionally, focusing resources on incident types that contribute most to moderate and major delays—namely Operations, Mechanical, Diversion, and Emergency Services—through rapid-response teams or preventive maintenance can further reduce delay times. Collectively, these measures could potentially enable the TTC to enhance service reliability, manage delays more effectively, and provide a better overall experience for riders.
+
+
+## Limitations
+
+The dataset may be subject to several types of total survey errors - primarily representation errors and processing errors. Since the TTC did not publish information about how the data were collected, or how the frame and sample population was selected, this observational dataset may be subject to coverage errors. We have reason to believe many entries were recorded manually, as indicated by frequent spelling and formatting mistakes in the `Location` field. This suggests the possibility of processing errors due to data-entry mistakes. These issues contributed to a laborious data cleaning process, which may have further contributed to further bias that could affect the representativeness of our analytical results.
+
+An in-depth spatial analysis conducted using additional GIS software revealed that the location dataset contains a wide range of entries beyond official TTC streetcar stops, including street names, intersections, landmarks, and inconsistently formatted locations. Because of this variability, it is not possible to reliably match these locations to official stop coordinates through automated processes, necessitating extensive manual review and additional data cleaning steps. For example, a test conducted on Route 501 showed that the official number of stops is 88, yet the dataset contains 471 unique location entries associated with this line. Many of these entries do not correspond to the actual route and appear to be erroneous or misreported locations from other parts of the city.
+If standardized stop codes were used during the delay recording process, a far more accurate and meaningful spatial analysis could be conducted, enabling precise mapping of delay hotspots and supporting stronger operational insights for network planning.
+
+Additionally, a significant disruption occurred on the 501 Queen Street streetcar route for most months of 2024. The streetcars were either replaced by buses or diverted elsewhere, as reported by the TTC (links [here](https://www.ttc.ca/news/2024/April/Temporary-streetcar-diversions-on-section-of-Queen-starting-Monday) and [here](https://www.ttc.ca/about-the-ttc/projects-and-plans/Adelaide-Street-track-renewal)). It is unclear how these disruptions were reflected or adjusted for the dataset, and this uncertainty may have contributed to bias in our results.
+
+## Ideas for Future Analyses (things we would have done if we had more time).
+
+Our analyses of the 2024 Streetcar Delay Dataset could be significantly enhanced. If more time were available, here are some avenues we would pursue:
+  1)	Clean the “Location” information even more thoroughly.  We also encourage the TTC to automate the way they record locations.
+  2)	Create a “Location Mapping” file where the name of each location could be mapped to a station identification number and GPS coordinates.  Again, this data would be really helpful for working with location data and comparing it to external data.
+  3)	Perform more background research on different types of regressor models to understand why some may be better candidates for our dataset than others.  The regressor models used in our project were common ones and some recommended by learning support.
+  4)	Similarly, we would research and try to understand more methods for encoding categorical data.
+  5)	When working with regressors, we could also attempt more strategies to process the data in advance.   We received suggestions that include removing outliers, adding external data, testing different encoding methods (other than One-Hot), and trying regression with binned rather than continuous data.  
+  6)	Additionally, we could try our analyses with data from additional years.  Stakeholders would benefit from knowing whether the identified trends were specific to 2024, or if they are longstanding issues.  We would also be very curious to see shifts in TTC usage and delays before and after COVID.
+
+## Team Videos
+Natasha Mathew: https://drive.google.com/file/d/1eOikP5jQHNjC3eKNXklBek-qh84V39uW/view?usp=sharing
+Tanner Ferreira: https://drive.google.com/file/d/1H1v4qq31cax07nQnwEBBvgVh9x35rEhS/view?usp=drive_link
+
+## Credits and Source
+Dataset sourced from: [City of Toronto’s Open Data Portal: TTC Streetcar Delay Data](https://open.toronto.ca/dataset/ttc-streetcar-delay-data/)
+[Environment Canada Weather Data Station 6158355](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html)
 
 -----------
 ## Brainstorming Notes Below
