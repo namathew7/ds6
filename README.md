@@ -9,7 +9,7 @@ For our capstone project in the Data Sciences Certificate program at the Univers
 [Purpose and Overview](https://github.com/namathew7/ds6/blob/main/README.md#purpose-and-overview) \
 [Project Scope](https://github.com/namathew7/ds6/blob/main/README.md#project-scope) \
 [Methodology](https://github.com/namathew7/ds6/blob/main/README.md#methodology)\
-[Data Cleaning](https://github.com/namathew7/ds6/blob/main/README.md#data-cleaning-process)\
+[Data Cleaning](https://github.com/namathew7/ds6/blob/main/README.md#data-cleaning)\
 [Insights from Data Visualization](https://github.com/namathew7/ds6/blob/main/README.md#insights-from-data-visualization)\
 [Regression and Classification Modeling](https://github.com/namathew7/ds6/blob/main/README.md#regression-modelling) \
 [Conclusions](https://github.com/namathew7/ds6/blob/main/README.md#conclusions) \
