@@ -8,13 +8,16 @@ For our capstone project in the Data Sciences Certificate program at the Univers
 ## Project Sections
 [Purpose and Overview](https://github.com/namathew7/ds6/blob/main/README.md#purpose-and-overview) \
 [Project Scope](https://github.com/namathew7/ds6/blob/main/README.md#project-scope) \
-Methodology \
-Data Cleaning \
-Insights from Data Visualization \
+[Methodology](https://github.com/namathew7/ds6/blob/main/README.md#methodology)\
+[Data Cleaning](https://github.com/namathew7/ds6/blob/main/README.md#data-cleaning-process)\
+[Insights from Data Visualization](https://github.com/namathew7/ds6/blob/main/README.md#insights-from-data-visualization)\
 [Regression and Classification Modeling](https://github.com/namathew7/ds6/blob/main/README.md#regression-modelling) \
-Conclusions \
-Limitations \
-Ideas for Future Analyses
+[Conclusions](https://github.com/namathew7/ds6/blob/main/README.md#conclusions) \
+[Limitations](https://github.com/namathew7/ds6/blob/main/README.md#limitations) \
+[Ideas for Future Analyses](https://github.com/namathew7/ds6/blob/main/README.md#ideas-for-future-analyses-things-we-would-have-done-if-we-had-more-time) \
+[Team Videos](https://github.com/namathew7/ds6/blob/main/README.md#team-videos)\
+[Credits and Sources](https://github.com/namathew7/ds6/blob/main/README.md#credits-and-source) 
+
 
 ## Purpose and Overview
 
