@@ -1,6 +1,6 @@
 # Capstone Project - DSI Cohort 7 - DS Team 6
 
-# Analyzing TTC Data on Streetcar Delays in 2024
+## Analyzing TTC Data on Streetcar Delays in 2024
 For our capstone project in the Data Sciences Certificate program at the University of Toronto’s Data Sciences Institute, we set out to explore real-world questions using the 2024 dataset on Toronto Transit Commission's (TTC) streetcar delays.
 
 ![Line_501_ArcGIS](Images/Line_501_ArcGIS.png)
@@ -11,7 +11,7 @@ For our capstone project in the Data Sciences Certificate program at the Univers
 [Methodology](https://github.com/namathew7/ds6/blob/main/README.md#methodology)\
 [Data Cleaning](https://github.com/namathew7/ds6/blob/main/README.md#data-cleaning)\
 [Insights from Data Visualization](https://github.com/namathew7/ds6/blob/main/README.md#insights-from-data-visualization)\
-[Regression and Classification Modeling](https://github.com/namathew7/ds6/blob/main/README.md#regression-modelling) \
+[Regression and Classification Modeling](https://github.com/namathew7/ds6/blob/main/README.md#regression-and-classification-modelling) \
 [Conclusions](https://github.com/namathew7/ds6/blob/main/README.md#conclusions) \
 [Limitations](https://github.com/namathew7/ds6/blob/main/README.md#limitations) \
 [Ideas for Future Analyses](https://github.com/namathew7/ds6/blob/main/README.md#ideas-for-future-analyses-things-we-would-have-done-if-we-had-more-time) \
