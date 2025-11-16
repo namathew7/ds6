@@ -133,7 +133,7 @@ Another important attribute of delay is understanding the pattern of incident ty
 
 This visualization highlights that certain incident types such as “Operations, Mechanical, Diversion, and Emergency Services” not only occur frequently but also generate a significant share of moderate and major delays. In contrast, categories like “Rail/Switches, Utilized Off Route, and Overhead” tend to produce mostly minor delays, indicating they are typically resolved more quickly. The distribution of severity across categories provides valuable insight into which incident types have the greatest operational impact, helping identify where targeted mitigation strategies may reduce overall service disruption.
 
-![incident_severity_distribution_type](Images/incident_severity_distribution_type.png))
+![incident_severity_distribution_type](Images/incident_severity_distribution_type.png)
 
 **Chart 8: Correlation Analysis** 
 
