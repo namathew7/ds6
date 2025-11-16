@@ -194,8 +194,11 @@ If location data was more accurate, it would have likely been a very strong feat
 
 Several models were explored to estimate ‘Min Delay.’ Delay duration is highly predictable when the ‘Min Gap’ feature is included, with models achieving R² values above 0.96 and average prediction errors of 5–10 minutes, highlighting the strong predictive power of this variable. Table 1 summarizes the performance of each model. However, when ‘Min Gap’ is removed, predictive performance collapses, with R² values falling near zero, indicating that delay time becomes largely unpredictable without this key feature. It is also notable that the performance of classification models improve when including a weather variable, suggesting that environmental factors can provide additional predictive insight. Overall, classification models appear to be more useful for understanding expected delays based on contributing factors.
 
-*Table 1: Performance results when including ‘Min Gap’*
-![Table_1](Images/Table_1.png)
+*Table 1a: Performance results when including ‘Min Gap’*
+![Table_1a](Images/Table_1a.png)
+
+*Table 1b: Performance results when excluding ‘Min Gap’*
+![Table_1b](Images/Table_1b.png)
 
 ## Conclusions
 
