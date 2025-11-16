@@ -6,7 +6,7 @@ For our capstone project in the Data Sciences Certificate program at the Univers
 ![Line_501_ArcGIS](Images/Line_501_ArcGIS.png)
 
 ## Project Sections
-[Purpose and Overview] https://github.com/namathew7/ds6/blob/main/README.md#purpose-and-overview \
+[Purpose and Overview] (https://github.com/namathew7/ds6/blob/main/README.md#purpose-and-overview) \
 [Project Scope] \
 Methodology \
 Data Cleaning \
