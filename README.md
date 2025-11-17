@@ -221,7 +221,7 @@ To test this, we rebuilt the pipeline excluding `Min Gap`. The results showed si
 
 ### Classification Modelling 
 
-Since the regression model did not satisfy the goal of predicting minute delay using the features in the ttc dataset, we decided to try classifying the minute delays into two categories: major and minor. We used Environment Canada’s weather data to examine whether temperature and precipitation would be good features to include. We merged the ttc and weather dataframes using month, day and hour as these were the common columns between the two dataframes.
+Since the regression model did not satisfy the goal of predicting minute delay using the features in the ttc dataset, we decided to try classifying the minute delays into two categories: major and minor. We used Environment Canada’s weather data to examine whether temperature and precipitation would be good features to include. We merged the ttc and weather dataframes using month, day and hour as these were the common columns between the two dataframes.  Data are analyzed in the [classification-weather Jupyter notebook](https://github.com/namathew7/ds6/blob/main/Regression_and_Classification_Notebooks/classification-weather.ipynb)
 
 To determine how to classify ‘minor’ versus ‘moderate’ delays, we looked at the descriptive statistics of the original dataset. Delays were classified as minor if they were less than the median (10 min) and moderate if they were between the median and 1.5 IQR + Q3 (10-25 min, inclusive). Not included in our model were ‘0’ values in the Min Delay column (signified no delay) and major (> 25 min) delays. Major delays were greater than 1.5 IQR + Q3 and considered outliers of the dataset. These delays are anomalistic and likely hard to predict or classify accurately. We wanted to use location as a feature for this model, so we also removed any location that appeared fewer than five times in the dataframe. These locations are likely to be typos or rare delay locations.
 
@@ -231,13 +231,14 @@ If location data were more accurate, they would have likely been a very strong f
 
 ### Summary of Regression and Classification Attempts
 
-Several models were explored to estimate `Min Delay`. Delay duration is highly predictable when the ‘Min Gap’ feature is included, with models achieving R² values above 0.96 and average prediction errors of 5–10 minutes, highlighting the strong predictive power of this variable. Table 1 summarizes the performance of each model. However, when ‘Min Gap’ is removed, predictive performance collapses, with R² values falling near zero, indicating that delay time becomes largely unpredictable without this key feature. It is also notable that the performance of classification models improve when including a weather variable, suggesting that environmental factors can provide additional predictive insight. Overall, classification models appear to be more useful for understanding expected delays based on contributing factors.
+Several models were explored to estimate `Min Delay`. Delay duration is highly predictable when the ‘Min Gap’ feature is included, with models achieving R² values above 0.96 and average prediction errors of 5–10 minutes, highlighting the strong predictive power of this variable. Table 1 summarizes the performance of each model. However, when ‘Min Gap’ is removed, predictive performance collapses, with R² values falling near zero, indicating that delay time becomes largely unpredictable without this key feature. It is also notable that the performance of classification models improve when including a weather variable, suggesting that environmental factors can provide additional predictive insight. Overall, classification models appear to be more useful for understanding expected delays based on contributing factors.  Logistic Regression is described in the [regression-logistic Jupyter Notebook](https://github.com/namathew7/ds6/blob/main/Regression_and_Classification_Notebooks/regression-logistic.ipynb)
 
 *Table 1a: Performance results when including `Min Gap`*
 ![Table_1a](Images/Table_1a.png)
 
 *Table 1b: Performance results when excluding `Min Gap`*
 ![Table_1b](Images/Table_1b.png)
+
 
 ## Conclusions
 
