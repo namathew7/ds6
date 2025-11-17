@@ -109,7 +109,7 @@ The following table describes the unique values in each column, before and after
 
 ### Enhancing the Data
 
-As part of enhancing the data, several new columns were introduced: `Month`, `Week`, `Day of Month`, `Hour of Day`, and `Seasons`.  These columns are designed to further examine whether data on time of day or time of year and help predict length of delay or time of incident.  The resulting excel file is made available as [`ttc-streetcar-delay-data-2024_cleaned.xlsx`](https://github.com/namathew7/ds6/blob/main/Excel_Files/ttc-streetcar-delay-data-2024_cleaned.xlsx) and was used as the basis for all exploratory data analyses.
+As part of enhancing the data, several new columns were introduced: `Month`, `Week`, `Day of Month`, `Hour of Day`, and `Season`.  These columns are designed to further examine whether data on time of day or time of year and help predict length of delay or time of incident.  The resulting excel file is made available as [`ttc-streetcar-delay-data-2024_cleaned.xlsx`](https://github.com/namathew7/ds6/blob/main/Excel_Files/ttc-streetcar-delay-data-2024_cleaned.xlsx) and was used as the basis for all exploratory data analyses.
 
 Weather was identified as a potential variable that could contribute to streetcar delays. This hourly data was sourced from [Environment Canada’s historical weather data Station 6158355](https://climate.weather.gc.ca/historical_data/search_historic_data_e.html). One csv file was available for each month of 2024 and the files were merged into one dataframe using the pandas library. The columns that were used are Date/Time (LST), Temperature(°C) and Precipitation (mm). We used the Date/ Time column to merge the weather dataframe with the TTC delays dataframe.
 
