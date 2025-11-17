@@ -227,7 +227,7 @@ To determine how to classify ‘minor’ versus ‘moderate’ delays, we looked
 
 We used Random Forest classification as it is good at handling noisy and mixed-type data that has many independent variables. The overall model accuracy was 0.82, but the recall (ability to find all actual positives) for minor delays was only 0.57. The precision (proportion of actual positives that were correct) was good for both minor (0.77) and moderate (0.83) classification categories. The features with the greatest importance were hour, temperature, week, day and month. 
 
-If location data were more accurate, it would have likely been a very strong feature in the model. It may be beneficial to create separate classification models for each incident type, as the factors that cause each type of incident likely vary. The threshold we used to separate minor and moderate delays was 10 minutes (median), but the model may produce different results if even slightly different thresholds are used, as 10 is also the mode of the dataset. A different threshold could more reliably differentiate between the two Delay Classes.
+If location data were more accurate, they would have likely been a very strong feature in the model. It may be beneficial to create separate classification models for each incident type, as the factors that cause each type of incident likely vary. The threshold we used to separate minor and moderate delays was 10 minutes (median), but the model may produce different results if even slightly different thresholds are used, as 10 is also the mode of the dataset. A different threshold could more reliably differentiate between the two Delay Classes.
 
 ### Summary of Regression and Classification Attempts
 
