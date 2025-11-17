@@ -299,7 +299,7 @@ Our analyses of the 2024 Streetcar Delay Dataset could be significantly enhanced
 
 ## Team Videos
 1. [Chloe Li](https://docs.google.com/videos/d/1lk8i2l89XcG3l--vBtuJQp7BWutnXQGW4sY_Xritpxg/edit?usp=sharing)
-2. [Christine Romano](https://drive.google.com/file/d/1mfAIqyAFFVMkrazkQOKsfh8VOtZI2VHq/view?usp=sharing)
+2. [Christine Romano](https://drive.google.com/file/d/10cNn9PEqbVNoMFNnnTuiHURJxz6Xdtkj/view?usp=sharing)
 3. [Natasha Mathew](https://drive.google.com/file/d/1eOikP5jQHNjC3eKNXklBek-qh84V39uW/view?usp=sharing)
 4. [Semiha Demirbas Caglayan](https://drive.google.com/file/d/1YcWnNi2xQmsNJvs5g8GGFamC--lB3jgO/view?usp=sharing)
 5. [Tanner Ferreira](https://drive.google.com/file/d/1H1v4qq31cax07nQnwEBBvgVh9x35rEhS/view?usp=drive_link)
