@@ -213,7 +213,7 @@ Our project aims to identify key factors that impact TTC streetcar delay time in
 To strengthen our insights, we experimented with various Regression Models, including Linear, KNN, and XGB. These initial models produced high R² scores (>0.90), prompting us to build a pipeline to validate and compare additional algorithms: Linear, Ridge, Lasso, Random Forest, and XGB. These pipeline results were consistent with the initial models. 
 
 However, exploratory visualizations revealed that `Min_Delay` and `Min_Gap` were highly correlated. We suspected that this strong correlation was driving the unusually high R² scores. This correlation is problematic because `Min_Delay` is not a meaningful predictor of 
-`Min_Gap`: the time gap between vehicles is a result of the delays. In other words, a streetcar being delayed increases the gap behind it - so the model was essentially "predicting delay using delay".
+`Min_Gap`; the time gap between vehicles is a result of the delays. In other words, a streetcar being delayed increases the gap behind it - so the model was essentially "predicting delay using delay".
 
 To test this, we rebuilt the pipeline excluding `Min Gap`. The results showed significantly weaker correlations for most models (<0.08), confirming that `Min_Gap` was the dominant predictor for `Min_Delay`. Taken together, these results show that without `Min_Gap`, the remaining features do not provide sufficient predictive power for Regression Models to accurately estimate Minutes of Delay.
 
