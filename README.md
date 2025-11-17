@@ -192,7 +192,7 @@ Additionally, heavily used lines like 501, 503, 504, 506, 507, and 512 show elev
 
 **Chart 10a and 10b: Delays By Location** 
 
-We were particularly interested in learning whether certain locations were associated with increased delays.  Of the 1400+ unique locations in our cleaned database, only 27 were responsible for more than 100 delays in 2024.  That means, fewer than 2% of the locations hosted nearly a third of delay incidents and a quarter of total delay time.  The TTC could make a large impact with few resources by focusing on these locations.
+We were particularly interested in learning whether certain locations were associated with increased delays.  Of the 1400+ unique locations in our [extra-cleaned database](https://github.com/namathew7/ds6/blob/main/Excel_Files/ttc-streetcar-delay-data-2024_cleaned_extra_CAR.xlsx), only 27 were responsible for more than 100 delays in 2024.  That means, fewer than 2% of the locations hosted nearly a third of delay incidents and a quarter of total delay time.  The TTC could make a large impact with few resources by focusing on these locations.
 
 ![Location_Incident_Percentages](Images/Location_Incident_Percentages.png)
 
