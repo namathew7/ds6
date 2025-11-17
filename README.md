@@ -196,7 +196,7 @@ We were particularly interested in learning whether certain locations were assoc
 
 ![Location_Incident_Percentages](Images/Location_Incident_Percentages.png)
 
-In the bar chart, the x axis shows high incident locations.  The left y axis shows the number of delay incidents per year, color coded by incident type.  Broadview and Spadina stations seem to have numerous sanitation and emergency services delays, while Kingston Loop and Kingston Road Loop  had an alarming number of security delays.  The TTC could minimize delays by coordinating with cleaning and emergency crews at Broadview and Dundas West stations to ensure better access and / or more frequent servicing.  To address the security issues at Kingston Loop and Kingston Road Loop, the TTC may want to partner with local law enforcement.
+In the bar chart, the x axis shows high incident locations.  The left y axis shows the number of delay incidents per year, color coded by incident type.  Broadview and Dundas West stations seem to have numerous sanitation and emergency services delays, while Kingston Loop and Kingston Road Loop  had an alarming number of security delays.  The TTC could minimize delays by coordinating with cleaning and emergency crews at Broadview and Dundas West stations to ensure better access and / or more frequent servicing.  To address the security issues at Kingston Loop and Kingston Road Loop, the TTC may want to partner with local law enforcement.
 
 Union Station remains plagued by a high relative percentage of general delays, but this “insight” will not surprise any Torontonian.
 
